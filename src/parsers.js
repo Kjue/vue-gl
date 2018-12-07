@@ -27,7 +27,7 @@ export function parseEuler(str) {
  * Returns a parsed spherical object.
  */
 export function parseSpherical(str) {
-  return str.isSpherical ? str : new Spherical(...str.trim().split(/\s+/).map(elm => parseFloat(elm))).makeSafe();
+  return str instanceof Spherical ? str : new Spherical(...str.trim().split(/\s+/).map(elm => parseFloat(elm))).makeSafe();
 }
 
 /**
