@@ -12,7 +12,17 @@
       "port": 9222,
       "webRoot": "${workspaceRoot}",
       "sourceMaps": true,
-      "url": "file:///C:/Prod/vue-gl/sample/index.html"
+      "url": "file:///C:/*/vue-gl/sample/index.html"
+    },
+    {
+      "type": "chrome",
+      "request": "attach",
+      "name": "Client serving",
+      // "preLaunchTask": "npm: openClient",
+      "port": 9222,
+      "webRoot": "${workspaceRoot}",
+      "sourceMaps": true,
+      "url": "http://localhost:3000/sample/"
     },
   ]
 }

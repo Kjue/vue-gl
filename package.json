@@ -27,6 +27,8 @@
     "test": "karma start",
     "start": "npm run clean && rollup -c && npm run copy && generate_docs.sh && bundle exec jekyll serve --source docs",
     "prepare": "npm run clean && rollup -c && call generate_docs.sh && npm run copy",
+    "roll": "rollup -c",
+    "serve": "serve -l 3000 .",
     "clean": "rimraf docs/components/* && rimraf docs/js",
     "createdir": "mkdir \"docs/js\"",
     "copy": "npm run createdir && cp -r dist/* docs/js && cp node_modules/three/build/three.min.js node_modules/three/examples/fonts/helvetiker_regular.typeface.json node_modules/vue/dist/vue.min.js docs/js",
@@ -58,6 +60,7 @@
     "rollup-plugin-babel": "^4.0.2",
     "rollup-plugin-babel-minify": "^6.0.0",
     "rollup-plugin-istanbul": "^2.0.1",
+    "serve": "^10.1.1",
     "vue": "^2.5.13"
   },
   "peerDependencies": {

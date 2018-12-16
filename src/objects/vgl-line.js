@@ -1,4 +1,4 @@
-import { VglObject3dWithMatarialAndGeometry } from '../mixins.js';
+import { VglObject3dWithMaterialAndGeometry } from '../mixins.js';
 import { Line } from '../three.js';
 import { string } from '../validators.js';
 
@@ -10,7 +10,7 @@ import { string } from '../validators.js';
  */
 
 export default {
-  mixins: [VglObject3dWithMatarialAndGeometry],
+  mixins: [VglObject3dWithMaterialAndGeometry],
   props: {
     /** Name of the geometry, representing the line segment(s). */
     geometry: string,

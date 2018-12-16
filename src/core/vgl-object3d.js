@@ -51,7 +51,14 @@ export default {
     inst: {
       handler(inst, oldInst) {
         if (oldInst && oldInst.parent) oldInst.parent.remove(oldInst);
-        if (this.vglObject3d.inst) this.vglObject3d.inst.add(inst);
+        let target = this.vglObject3d.inst;
+        while (target) {
+          if (target.type === 'Scene') {
+            target.add(inst);
+            break;
+          }
+          target = target.parent;
+        }
         if (this.position) inst.position.copy(parseVector3(this.position));
         if (this.rotation) inst.rotation.copy(parseEuler(this.rotation));
         if (this.scale) inst.scale.copy(parseVector3(this.scale));

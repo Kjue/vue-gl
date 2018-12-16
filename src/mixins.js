@@ -1,7 +1,7 @@
 import VglMaterial from './materials/vgl-material.js';
 import VglObject3d from './core/vgl-object3d.js';
 
-export const VglObject3dWithMatarial = {
+export const VglObject3dWithMaterial = {
   mixins: [VglObject3d],
   methods: {
     setMaterial() {
@@ -16,8 +16,8 @@ export const VglObject3dWithMatarial = {
   },
 };
 
-export const VglObject3dWithMatarialAndGeometry = {
-  mixins: [VglObject3dWithMatarial],
+export const VglObject3dWithMaterialAndGeometry = {
+  mixins: [VglObject3dWithMaterial],
   methods: {
     setGeometry() {
       const { vglNamespace: { geometries }, geometry, inst } = this;

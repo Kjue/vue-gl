@@ -17,6 +17,11 @@
       "type": "npm",
       "script": "roll",
       "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "script": "serve",
+      "problemMatcher": []
     }
   ]
 }

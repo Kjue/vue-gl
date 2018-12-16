@@ -1,4 +1,4 @@
-import { VglObject3dWithMatarial } from '../mixins.js';
+import { VglObject3dWithMaterial } from '../mixins.js';
 import { Sprite } from '../three.js';
 import { string } from '../validators.js';
 
@@ -10,7 +10,7 @@ import { string } from '../validators.js';
  */
 
 export default {
-  mixins: [VglObject3dWithMatarial],
+  mixins: [VglObject3dWithMaterial],
   props: {
     /** Name of the material, defining the object's appearance. */
     material: string,
