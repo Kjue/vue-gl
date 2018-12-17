@@ -34,6 +34,9 @@
     "copy": "npm run createdir && cp -r dist/* docs/js && cp node_modules/three/build/three.min.js node_modules/three/examples/fonts/helvetiker_regular.typeface.json node_modules/vue/dist/vue.min.js docs/js",
     "publish": "mv .gitignore .gitignore.disabled && (gh-pages --dist docs; mv .gitignore.disabled .gitignore)"
   },
+  "files": [
+    "dist/**"
+  ],
   "dependencies": {
     "three": "^0.98.0"
   },
