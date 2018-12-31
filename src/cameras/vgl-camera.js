@@ -1,7 +1,7 @@
 import VglObject3d from '../core/vgl-object3d.js';
 import { parseVector3, parseSpherical } from '../parsers.js';
-import { vector3, spherical } from '../validators.js';
-import { Camera, Vector3 } from '../three.js';
+import { vector3, spherical, boolean } from '../validators.js';
+import { Camera, Vector3, OrbitControls } from '../three.js';
 
 /**
  * This is abstract base component for cameras,
@@ -27,9 +27,25 @@ export default {
      * If orbitTarget is not defined, automatically set to (0, 0, 0).
      */
     orbitPosition: spherical,
+    /**
+     * The camera class is now enabled with orbiting controls.
+     * This prop will control if screen space panning is used.
+     */
+    screenSpacePanning: { type: boolean, default: true },
   },
   computed: {
     inst: () => new Camera(),
+  },
+  mounted() {
+    const { vglNamespace: { renderers }, inst } = this;
+    this.controls = new OrbitControls(inst, renderers[0].$el);
+    this.controls.screenSpacePanning = this.screenSpacePanning;
+    this.controls.addEventListener('change', this.update);
+  },
+  methods: {
+    update() {
+      this.vglNamespace.update();
+    },
   },
   watch: {
     inst: {

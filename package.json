@@ -21,7 +21,6 @@
     "url": "https://github.com/vue-gl/vue-gl/issues"
   },
   "license": "MIT",
-  "main": "dist/vue-gl.js",
   "scripts": {
     "lint": "eslint src test *.js && markdownlint --ignore docs/components *.md docs/**/*.md",
     "test": "karma start",
@@ -34,6 +33,7 @@
     "copy": "npm run createdir && cp -r dist/* docs/js && cp node_modules/three/build/three.min.js node_modules/three/examples/fonts/helvetiker_regular.typeface.json node_modules/vue/dist/vue.min.js docs/js",
     "publish": "mv .gitignore .gitignore.disabled && (gh-pages --dist docs; mv .gitignore.disabled .gitignore)"
   },
+  "main": "dist/vue-gl.js",
   "files": [
     "dist/**"
   ],
@@ -61,11 +61,14 @@
     "rollup-plugin-babel": "^4.0.2",
     "rollup-plugin-babel-minify": "^6.0.0",
     "rollup-plugin-istanbul": "^2.0.1",
+    "rollup-plugin-terser": "^3.0.0",
+    "rollup-plugin-uglify": "^6.0.0",
     "serve": "^10.1.1",
-    "vue": "^2.5.13",
-    "three": "^0.98.0"
+    "three-full": "^11.3.2",
+    "vue": "^2.5.13"
   },
   "peerDependencies": {
+    "three-full": "^11.3.2",
     "vue": "^2.5.0"
   },
   "babel": {

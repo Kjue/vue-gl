@@ -59,6 +59,10 @@ import VglLatheGeometry from './geometries/vgl-lathe-geometry.js';
 import VglSpotLightHelper from './helpers/vgl-spot-light-helper.js';
 import VglHemisphereLight from './lights/vgl-hemisphere-light.js';
 
+import {
+  number, string, vector3, spherical, boolean, euler, vector2, floatArray, vector2Array,
+} from './validators';
+
 export {
   VglNamespace,
   VglObject3d,
@@ -120,4 +124,13 @@ export {
   VglLatheGeometry,
   VglSpotLightHelper,
   VglHemisphereLight,
+  number,
+  string,
+  vector3,
+  spherical,
+  boolean,
+  euler,
+  vector2,
+  floatArray,
+  vector2Array,
 };

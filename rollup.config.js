@@ -1,29 +1,47 @@
 import path from 'path';
 import babel from 'rollup-plugin-babel';
-import minify from 'rollup-plugin-babel-minify';
-import { version } from 'three/package.json';
+import { uglify } from 'rollup-plugin-uglify';
+import { terser } from 'rollup-plugin-terser';
+import { version as versionThree } from 'three-full/package.json';
 
-const baseOpts = {
-  input: path.resolve('src/index.js'),
-  external: 'three',
-  plugins: [babel(), minify()],
+const rollGlobals = {
+  three: 'THREE',
+  'three-full': 'Three',
+  'vue-gl': 'VueGL',
 };
 
-export default [Object.assign({
-  output: {
-    file: path.resolve('dist/vue-gl.module.js'),
-    format: 'es',
-    paths: {
-      three: `https://unpkg.com/three@${version}/build/three.module.js`,
-    },
+export default [
+  {
+    input: 'src/index.js',
+    external: ['loaders', 'THREE', 'three-full'],
+    plugins: [
+      babel(), uglify(),
+    ],
+    output: [
+      {
+        name: 'VueGL',
+        file: path.resolve('dist/vue-gl.UMD.js'),
+        format: 'umd',
+        globals: rollGlobals,
+      },
+    ],
   },
-}, baseOpts), Object.assign({
-  output: {
-    file: path.resolve('dist/vue-gl.js'),
-    format: 'umd',
-    name: 'VueGL',
-    globals: {
-      three: 'THREE',
-    },
+  {
+    input: 'src/index.js',
+    external: ['loaders', 'THREE', 'three-full'],
+    plugins: [
+      babel(), terser(),
+    ],
+    output: [
+      {
+        name: 'VueGL',
+        file: path.resolve('dist/vue-gl.js'),
+        format: 'es',
+        globals: rollGlobals,
+        paths: {
+          Three: `https://unpkg.com/three-full@${versionThree}/builds/Three.es.js`,
+        },
+      },
+    ],
   },
-}, baseOpts)];
+];

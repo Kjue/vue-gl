@@ -113,6 +113,7 @@ export {
   Camera,
   OrthographicCamera,
   PerspectiveCamera,
+  OrbitControls,
   NoColors,
   VertexColors,
   FaceColors,
@@ -122,4 +123,4 @@ export {
   Color,
   FontLoader,
   BufferAttribute,
-} from 'three';
+} from 'three-full';
